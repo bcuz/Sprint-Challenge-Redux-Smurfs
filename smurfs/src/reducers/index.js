@@ -23,7 +23,7 @@
 */
 
 const defaults = {
-  todos: 'hi'
+  smurfs: ['bob']
 }
 
 const rootReducer = (state = defaults, action) => {
