@@ -21,3 +21,17 @@
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
+
+const defaults = {
+  todos: 'hi'
+}
+
+const rootReducer = (state = defaults, action) => {
+  switch (action.type) {  
+
+    default:
+      return state;
+  }
+}
+
+export default rootReducer;
