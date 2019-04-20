@@ -12,7 +12,10 @@ class SmurfsList extends Component {
   render() {
     return (
       <div>
-      {!this.props.fetchingData && this.props.smurfs.length > 0  && this.props.smurfs[0].name}
+      {!this.props.fetchingData && this.props.smurfs.length > 0  && (
+        
+        <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>
+        )}
 
       </div>
     );

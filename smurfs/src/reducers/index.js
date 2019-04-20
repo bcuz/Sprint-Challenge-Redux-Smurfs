@@ -35,7 +35,7 @@ const rootReducer = (state = defaults, action) => {
       return {
         ...state,
         // error: "",
-        // fetchingData: false,
+        fetchingData: false,
         smurfs: action.smurfs
       };
 
