@@ -1,4 +1,4 @@
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "../actions";
+import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, ADD_FRIEND_SMURF } from "../actions";
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -23,13 +23,12 @@ const rootReducer = (state = defaults, action) => {
     case FETCH_DATA_START:
       return {
         ...state,
-        // error: "",
+        error: null,
         fetchingSmurfs: true
       };
     case FETCH_DATA_SUCCESS:
       return {
         ...state,
-        // error: "",
         fetchingSmurfs: false,
         smurfs: action.smurfs
       };
@@ -38,6 +37,11 @@ const rootReducer = (state = defaults, action) => {
         ...state,
         fetchingSmurfs: false,
         error: action.error
+      };
+    case ADD_FRIEND_SMURF:
+      return {
+        ...state,
+        smurfs: action.smurfs
       };
     default:
       return state;

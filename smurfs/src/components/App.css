@@ -27,6 +27,14 @@
   to { transform: rotate(360deg); }
 }
 
-ul {
+ul, label, h2 {
   text-align: left;
+}
+
+label, input {
+  display: block;
+}
+
+form {
+  margin-left: 10px;
 }
