@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import {getFriends} from "../actions";
+import {getSmurfs} from "../actions";
 
 class SmurfsList extends Component {
 
   componentDidMount() {
     // call our action
-    // this.props.getFriends()
+    this.props.getSmurfs()
   }
 
   render() {
     return (
       <div>
-      {this.props.smurfs[0]}
+      {!this.props.fetchingData && this.props.smurfs.length > 0  && this.props.smurfs[0].name}
+
       </div>
     );
   }
@@ -22,4 +23,4 @@ const mapStateToProps = state => {
   return { smurfs: state.smurfs }
 }
 
-export default connect(mapStateToProps, {})(SmurfsList);
+export default connect(mapStateToProps, {getSmurfs})(SmurfsList);

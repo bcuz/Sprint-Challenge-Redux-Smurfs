@@ -1,3 +1,4 @@
+import { FETCH_DATA_SUCCESS } from "../actions";
 /*
   Be sure to import in all of the action types from `../actions`
 */
@@ -7,10 +8,10 @@
  {
    smurfs: [],
    fetchingSmurfs: false
+   error: null
    addingSmurf: false
    updatingSmurf: false
    deletingSmurf: false
-   error: null
  }
 */
 
@@ -23,11 +24,20 @@
 */
 
 const defaults = {
-  smurfs: ['bob']
+  smurfs: [],
+  fetchingSmurfs: false,
+  error: null
 }
 
 const rootReducer = (state = defaults, action) => {
   switch (action.type) {  
+    case FETCH_DATA_SUCCESS:
+      return {
+        ...state,
+        // error: "",
+        // fetchingData: false,
+        smurfs: action.smurfs
+      };
 
     default:
       return state;
