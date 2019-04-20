@@ -38,3 +38,7 @@ label, input {
 form {
   margin-left: 10px;
 }
+
+li button {
+  margin-right: 10px;
+}

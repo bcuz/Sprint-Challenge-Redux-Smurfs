@@ -33,6 +33,7 @@ export const getSmurfs = () => dispatch => {
   }
 
 export const ADD_FRIEND_SMURF = "ADD_FRIEND_SMURF";
+export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS";
 
 export const addSmurf = newSmurf => dispatch => {
   // console.log(newSmurf);
@@ -45,3 +46,13 @@ export const addSmurf = newSmurf => dispatch => {
       dispatch({type: ADD_FRIEND_SMURF, smurfs: res.data})
     })
 }  
+
+export const deleteSmurf = id => dispatch => {
+  axios
+  .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      console.log(res);
+      
+      dispatch({type: DELETE_SMURF_SUCCESS, smurfs: res.data})
+    })
+}

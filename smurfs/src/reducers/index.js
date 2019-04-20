@@ -2,7 +2,7 @@ import {
   FETCH_DATA_START,
    FETCH_DATA_SUCCESS,
    FETCH_DATA_FAILURE,
-   ADD_FRIEND_SMURF } 
+   ADD_FRIEND_SMURF, DELETE_SMURF_SUCCESS } 
 from "../actions";
 
 /*
@@ -44,6 +44,11 @@ const rootReducer = (state = defaults, action) => {
         error: action.error
       };
     case ADD_FRIEND_SMURF:
+      return {
+        ...state,
+        smurfs: action.smurfs
+      };
+    case DELETE_SMURF_SUCCESS:
       return {
         ...state,
         smurfs: action.smurfs
