@@ -45,7 +45,7 @@ class SmurfsList extends Component {
     } 
     return (
       <div>
-      <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>    
+      <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name} is {smurf.age} years old</li>)}</ul>    
       
       <h2>add new smurf</h2>
         <form onSubmit={this.handleSubmit} action="">
