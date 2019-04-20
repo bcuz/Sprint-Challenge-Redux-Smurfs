@@ -10,20 +10,22 @@ class SmurfsList extends Component {
   }
 
   render() {
+
+    if (this.props.fetchingSmurfs) {
+      // return something here to indicate that you are fetching data      
+      return <p>Loading</p>
+    } 
     return (
       <div>
-      {!this.props.fetchingData && this.props.smurfs.length > 0  && (
         
-        <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>
-        )}
-
+        <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>        
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { smurfs: state.smurfs }
+  return { smurfs: state.smurfs, fetchingSmurfs: state.fetchingSmurfs }
 }
 
 export default connect(mapStateToProps, {getSmurfs})(SmurfsList);

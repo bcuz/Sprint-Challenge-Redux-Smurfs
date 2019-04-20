@@ -16,10 +16,11 @@ import axios from "axios";
    D - deleteSmurf
 */
 
+export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 
 export const getSmurfs = () => dispatch => {
-  // dispatch({ type: FETCHING });
+  dispatch({ type: FETCH_DATA_START });
   axios
     .get('http://localhost:3333/smurfs')
     .then(res => dispatch({type: FETCH_DATA_SUCCESS, smurfs: res.data}))
