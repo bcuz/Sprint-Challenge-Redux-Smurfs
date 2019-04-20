@@ -1,4 +1,4 @@
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS } from "../actions";
+import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "../actions";
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -33,7 +33,12 @@ const rootReducer = (state = defaults, action) => {
         fetchingSmurfs: false,
         smurfs: action.smurfs
       };
-
+    case FETCH_DATA_FAILURE:
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        error: action.error
+      };
     default:
       return state;
   }

@@ -15,17 +15,25 @@ class SmurfsList extends Component {
       // return something here to indicate that you are fetching data      
       return <p>Loading</p>
     } 
-    return (
+    if (this.props.error) {
+      return (
       <div>
-        
-        <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>        
+        <p>{this.props.error}</p>
+        <p>try reloading the page</p>
       </div>
+      )
+    } 
+    return (
+      <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name}</li>)}</ul>      
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { smurfs: state.smurfs, fetchingSmurfs: state.fetchingSmurfs }
+  return { smurfs: state.smurfs, 
+    fetchingSmurfs: state.fetchingSmurfs,
+    error: state.error,
+ }
 }
 
 export default connect(mapStateToProps, {getSmurfs})(SmurfsList);
