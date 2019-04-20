@@ -31,10 +31,6 @@ class SmurfsList extends Component {
 
   render() {
 
-    if (this.props.fetchingSmurfs) {
-      // return something here to indicate that you are fetching data      
-      return <p>Loading</p>
-    } 
     if (this.props.error) {
       return (
       <div>
@@ -45,7 +41,9 @@ class SmurfsList extends Component {
     } 
     return (
       <div>
-      <ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name} is {smurf.age} years old</li>)}</ul>    
+      {this.props.fetchingSmurfs && <p>Loading...</p>}
+
+      {!this.props.fetchingSmurfs && this.props.smurfs.length > 0  && (<ul>{this.props.smurfs.map(smurf => <li key={smurf.id}>{smurf.name} is {smurf.age} years old</li>)}</ul>)    }
       
       <h2>add new smurf</h2>
         <form onSubmit={this.handleSubmit} action="">

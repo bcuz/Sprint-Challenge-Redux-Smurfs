@@ -1,4 +1,9 @@
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE, ADD_FRIEND_SMURF } from "../actions";
+import { 
+  FETCH_DATA_START,
+   FETCH_DATA_SUCCESS,
+   FETCH_DATA_FAILURE,
+   ADD_FRIEND_SMURF } 
+from "../actions";
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
