@@ -36,7 +36,7 @@ export const ADD_FRIEND_SMURF = "ADD_FRIEND_SMURF";
 export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS";
 
 export const addSmurf = newSmurf => dispatch => {
-  // console.log(newSmurf);
+  console.log(newSmurf);
   
   axios
   .post("http://localhost:3333/smurfs", newSmurf)
